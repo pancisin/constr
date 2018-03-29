@@ -67,7 +67,7 @@ export default {
         (func &&
           func(
             this.building.width,
-            this.building.height,
+            this.building.depth,
             this.boarding.brick,
             this.boarding.rows
           )) ||

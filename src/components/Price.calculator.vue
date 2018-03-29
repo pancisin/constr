@@ -27,7 +27,7 @@ export default {
   },
   computed: {
     finalPrice () {
-      return (this.items * this.price || 0).toFixed(2);
+      return this.items * this.price || 0
     }
   }
 };

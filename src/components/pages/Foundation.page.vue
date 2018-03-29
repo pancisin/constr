@@ -21,9 +21,14 @@
           @update="update" 
           :fType="fType" 
           :building="building" /> 
+
+        <plate-calculator
+          class="mt-3" />
       </div>
       <div class="col-md">
-        <price-calculator :items="items" class="mt-3" />
+        <price-calculator 
+          :items="items" 
+          class="mt-3" />
         <boarding-calculator 
           class="mt-3"
           :fType="fType"
@@ -38,6 +43,7 @@ import FoundationCalculator from '../Foundation.calculator';
 import PriceCalculator from '../Price.calculator';
 import BoardingCalculator from '../Boarding.calculator';
 import FoundationTypes from '../../services/maps/foundationTypes.map';
+import PlateCalculator from '../Plate.calculator';
 import { mapGetters } from 'vuex';
 
 export default {
@@ -57,11 +63,12 @@ export default {
   components: {
     FoundationCalculator,
     PriceCalculator,
-    BoardingCalculator
+    BoardingCalculator,
+    PlateCalculator
   },
   methods: {
     update (volume) {
-      this.items = volume / 1000000;
+      this.items = parseInt(volume, 10);
     }
   }
 };

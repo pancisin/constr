@@ -30,7 +30,7 @@
 
 <script>
 export default {
-  name: 'brick-selelctor',
+  name: 'brick-selector',
   props: {
     bricks: Array
   },
@@ -62,14 +62,15 @@ export default {
   .brick-selector-options {
     position: absolute;
     z-index: 1;
-    background: #fff;
+    background-color: #fff;
     width: 100%;
-    border: 1px solid #ccc;
+    // border: 1px solid #ccc;
+    box-shadow: 0 1px 3px rgba(0,0,0,0.12), 0 1px 2px rgba(0,0,0,0.24);
 
     .option {
       cursor: pointer;
       padding: 7px 10px;
-      transition: background 0.3s ease;
+      transition: background-color 0.3s ease;
 
       img {
         width: 32px;
@@ -77,7 +78,7 @@ export default {
       }
 
       &:hover {
-        background: #eee;
+        background-color: #eee;
       }
 
       & ~ .option {

@@ -38,7 +38,7 @@
 
     <div class="card border-success mt-2">
       <div class="card-body text-center text-success">
-        <b>{{ result / 1000000 }}</b> m<sup>3</sup>
+        <volume :value="result" />
       </div>
     </div>
   </form>
@@ -46,6 +46,8 @@
 
 <script>
 import ConcreteCalc from '../services/calc/concrete.calc';
+import { Volume } from './elements';
+
 export default {
   name: 'foundation-calculator',
   props: {
@@ -67,17 +69,17 @@ export default {
       }
     };
   },
+  components: {
+    Volume
+  },
   computed: {
     result () {
-      const func = ConcreteCalc[this.fType];
+      const func = ConcreteCalc.foundation[this.fType];
       let result = 0;
       if (func) {
         const width = this.building.width + 2 * this.foundation.offset;
-        const height = this.building.height + 2 * this.foundation.offset;
-        result = (
-          func(width, height, this.foundation.width, this.foundation.height) ||
-          0
-        ).toFixed(2);
+        const height = this.building.depth + 2 * this.foundation.offset;
+        result = func(width, height, this.foundation.width, this.foundation.height) || 0
       }
 
       this.$emit('update', result);

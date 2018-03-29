@@ -44,8 +44,8 @@ export default {
       return (
         BrickCalc.enclosure(
           this.building.width,
-          this.building.height,
           this.building.depth,
+          this.building.height,
           this.brick
         ) || 0
       );
