@@ -43,19 +43,19 @@
 </template>
 
 <script>
-import ItemsApi from "../../api/items.api";
-import { Observable, Subject } from "rxjs";
+import ItemsApi from '../../api/items.api';
+import { Observable, Subject } from 'rxjs';
 
 export default {
-  name: "another-page",
-  data() {
+  name: 'another-page',
+  data () {
     return {
       newItem: {}
     };
   },
-  subscriptions() {
+  subscriptions () {
     this.deleteItem$ = new Subject();
-    const created$ = this.$eventToObservable("hook:created").take(1);
+    const created$ = this.$eventToObservable('hook:created').take(1);
     const items = created$
       .flatMap(() =>
         Observable.create(ob => {
@@ -72,12 +72,12 @@ export default {
     };
   },
   methods: {
-    deleteItem(item) {
+    deleteItem (item) {
       ItemsApi.deleteItem(item.id, res => {
         this.items = this.items.filter(x => x.id !== item.id);
       });
     },
-    submitItem() {
+    submitItem () {
       ItemsApi.addItem(this.newItem, item => {
         this.items = [...this.items, item];
         this.newItem = {};

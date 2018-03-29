@@ -26,13 +26,13 @@
 </template>
 
 <script>
-import BuildingForm from "../Building.form";
-import BrickCalc from "../../services/calc/brick.calc";
-import { WallBrickPicker } from "../elements";
+import BuildingForm from '../Building.form';
+import BrickCalc from '../../services/calc/brick.calc';
+import { WallBrickPicker } from '../elements';
 
 export default {
-  name: "walls-page",
-  data() {
+  name: 'walls-page',
+  data () {
     return {
       building: {},
       brick: {}
@@ -43,7 +43,7 @@ export default {
     WallBrickPicker
   },
   computed: {
-    bricks() {
+    bricks () {
       return (
         BrickCalc.enclosure(
           this.building.width,

@@ -1,11 +1,11 @@
-import db from "../services/db";
+import db from '../services/db';
 export default {
-  getItems(success) {
+  getItems (success) {
     db.items.toArray(items => {
       success(items);
     });
   },
-  addItem(item, success) {
+  addItem (item, success) {
     db.items.add(item).then(result => {
       success({
         ...item,
@@ -13,12 +13,12 @@ export default {
       });
     });
   },
-  deleteItem(id, success) {
+  deleteItem (id, success) {
     db.items.delete(id).then(result => {
       success(result);
     });
   },
-  putItem(id, item, success) {
+  putItem (id, item, success) {
     db.items.put(item, id).then(result => {
       success(item);
     });

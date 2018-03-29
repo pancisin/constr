@@ -34,10 +34,10 @@
 </template>
 
 <script>
-import BrickCalculator from "../services/calc/brick.calc";
-import { BoardingBrickPicker } from "./elements";
+import BrickCalculator from '../services/calc/brick.calc';
+import { BoardingBrickPicker } from './elements';
 export default {
-  name: "boarding-calculator",
+  name: 'boarding-calculator',
   props: {
     fType: {
       type: String,
@@ -48,7 +48,7 @@ export default {
       required: true
     }
   },
-  data() {
+  data () {
     return {
       boarding: {
         rows: 0,
@@ -60,7 +60,7 @@ export default {
     BoardingBrickPicker
   },
   computed: {
-    result() {
+    result () {
       const func = BrickCalculator.boarding[this.fType];
 
       let result =
@@ -72,13 +72,13 @@ export default {
             this.boarding.rows
           )) ||
         0;
-      this.$emit("update", result);
+      this.$emit('update', result);
       return result;
     },
-    boardingVolume() {
+    boardingVolume () {
       return (this.result * 0.0245).toFixed(2);
     },
-    totalWeight() {
+    totalWeight () {
       return (this.result * this.boarding.brick.weight / 1000 || 0).toFixed(2);
     }
   }

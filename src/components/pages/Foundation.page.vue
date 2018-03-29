@@ -35,23 +35,23 @@
 </template>
 
 <script>
-import FoundationCalculator from "../Foundation.calculator";
-import PriceCalculator from "../Price.calculator";
-import BoardingCalculator from "../Boarding.calculator";
-import BuildingForm from "../Building.form";
-import FoundationTypes from "../../services/maps/foundationTypes.map";
+import FoundationCalculator from '../Foundation.calculator';
+import PriceCalculator from '../Price.calculator';
+import BoardingCalculator from '../Boarding.calculator';
+import BuildingForm from '../Building.form';
+import FoundationTypes from '../../services/maps/foundationTypes.map';
 
 export default {
-  name: "concrete",
-  data() {
+  name: 'concrete',
+  data () {
     return {
       items: 0,
-      fType: "typeA",
+      fType: 'typeA',
       building: {}
     };
   },
   computed: {
-    foundationTypes() {
+    foundationTypes () {
       return FoundationTypes;
     }
   },
@@ -62,7 +62,7 @@ export default {
     BuildingForm
   },
   methods: {
-    update(volume) {
+    update (volume) {
       this.items = volume / 1000000;
     }
   }

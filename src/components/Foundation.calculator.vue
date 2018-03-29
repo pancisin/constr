@@ -45,9 +45,9 @@
 </template>
 
 <script>
-import ConcreteCalc from "../services/calc/concrete.calc";
+import ConcreteCalc from '../services/calc/concrete.calc';
 export default {
-  name: "foundation-calculator",
+  name: 'foundation-calculator',
   props: {
     fType: {
       type: String,
@@ -58,7 +58,7 @@ export default {
       required: true
     }
   },
-  data() {
+  data () {
     return {
       foundation: {
         width: null,
@@ -68,7 +68,7 @@ export default {
     };
   },
   computed: {
-    result() {
+    result () {
       const func = ConcreteCalc[this.fType];
       let result = 0;
       if (func) {
@@ -80,7 +80,7 @@ export default {
         ).toFixed(2);
       }
 
-      this.$emit("update", result);
+      this.$emit('update', result);
       return result;
     }
   }

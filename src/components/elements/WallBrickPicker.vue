@@ -29,11 +29,11 @@
 </template>
 
 <script>
-import EnclosureBricks from "../../services/maps/enclosureBricks.map";
-import BrickSelector from "./BrickSelector";
+import EnclosureBricks from '../../services/maps/enclosureBricks.map';
+import BrickSelector from './BrickSelector';
 export default {
-  name: "brick-picker",
-  data() {
+  name: 'brick-picker',
+  data () {
     return {
       brick: {
         width: 0,
@@ -46,14 +46,14 @@ export default {
     BrickSelector
   },
   computed: {
-    bricks() {
-      return [...EnclosureBricks, { name: "Custom", custom: true }];
+    bricks () {
+      return [...EnclosureBricks, { name: 'Custom', custom: true }];
     }
   },
   watch: {
     brick: {
-      handler(newVal) {
-        this.$emit("input", newVal);
+      handler (newVal) {
+        this.$emit('input', newVal);
       },
       deep: true
     }

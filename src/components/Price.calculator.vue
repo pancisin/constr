@@ -16,17 +16,17 @@
 
 <script>
 export default {
-  name: "price-calculator",
+  name: 'price-calculator',
   props: {
     items: Number
   },
-  data() {
+  data () {
     return {
       price: 0
     };
   },
   computed: {
-    finalPrice() {
+    finalPrice () {
       return (this.items * this.price || 0).toFixed(2);
     }
   }

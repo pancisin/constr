@@ -33,8 +33,8 @@
 
 <script>
 export default {
-  name: "building-form",
-  data() {
+  name: 'building-form',
+  data () {
     return {
       building: {
         width: 0,
@@ -45,8 +45,8 @@ export default {
   },
   watch: {
     building: {
-      handler(newVal) {
-        this.$emit("input", newVal);
+      handler (newVal) {
+        this.$emit('input', newVal);
       },
       deep: true
     }

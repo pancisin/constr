@@ -30,26 +30,26 @@
 
 <script>
 export default {
-  name: "brick-selelctor",
+  name: 'brick-selelctor',
   props: {
     bricks: Array
   },
-  data() {
+  data () {
     return {
       showOptions: false,
       selected: {}
     };
   },
   methods: {
-    focusChange(event) {
-      if (event.type === "focus") {
+    focusChange (event) {
+      if (event.type === 'focus') {
         this.showOptions = true;
       }
     },
-    select(brick) {
+    select (brick) {
       this.showOptions = false;
       this.selected = brick;
-      this.$emit("input", brick);
+      this.$emit('input', brick);
     }
   }
 };
