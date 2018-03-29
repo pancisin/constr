@@ -8,14 +8,12 @@
         type="number"
         class="form-control"
         v-model.number="plate.height">
-      <!-- <small class="form-text text-muted">
-        Foundation outer size may differ from building dimensions. 
-        You can set offset property here.
-      </small> -->
     </div>
 
-
-    <wire-mesh-picker v-model="mesh" />
+    <div class="form-group">
+      <label>Wire mesh</label>
+      <wire-mesh-picker v-model="mesh" />
+    </div>
 
     <div class="card border-success mt-2">
       <div class="card-body text-center text-success">
@@ -23,7 +21,7 @@
         <hr />
         <b>{{ wireMeshesCount }}</b> pieces of wire mesh
         <hr />
-        mesh volume: <b>~ {{ meshVolume }}</b> m<sup>3</sup> 
+        mesh volume: <volume :value="meshVolume" />
       </div>
     </div>
   </div>
@@ -59,15 +57,11 @@ export default {
       ) || 0
     },
     meshVolume () {
-      return SteelCalc.wireMesh.volume(this.mesh)
+      return SteelCalc.wireMesh.volume(this.mesh) || 0
     },
     wireMeshesCount () {
-      return SteelCalc.wireMesh.count(this.building.width, this.building.depth, this.mesh)
+      return SteelCalc.wireMesh.count(this.building.width, this.building.depth, this.mesh) || 0
     }
   }
 }
 </script>
-
-<style>
-
-</style>

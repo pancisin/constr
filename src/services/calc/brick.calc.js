@@ -26,6 +26,6 @@ export default {
     const vol = (outer - inner) * height;
     const brickVol = brick.width * brick.height * brick.depth;
 
-    return vol / brickVol;
+    return Math.round(vol / brickVol);
   }
 };

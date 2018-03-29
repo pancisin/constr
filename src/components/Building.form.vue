@@ -1,37 +1,12 @@
 <template>
   <div class="building-form">
-    <b>Building</b>
-    <div class="form-group">
-      <label>Dimensions</label>
-      <div 
-        class="input-group">
-        <input 
-          class="form-control form-control-sm text-center"  
-          placeholder="Width"
-          v-model.number="building.width">
-        <div class="input-group-prepend">
-          <div class="input-group-text">x</div>
-        </div>
-        <input 
-          class="form-control form-control-sm text-center"  
-          placeholder="Depth"
-          v-model.number="building.depth">
-        <div class="input-group-prepend">
-          <div class="input-group-text">x</div>
-        </div>
-         <input 
-          class="form-control form-control-sm text-center"  
-          placeholder="Height"
-          v-model.number="building.height">
-      </div>
-      <small class="form-text text-muted">
-        Enter total building width & height without insulation depth.
-      </small>
-    </div>
+    
   </div>
 </template>
 
 <script>
+import { mapActions } from 'vuex';
+
 export default {
   name: 'building-form',
   data () {
@@ -39,10 +14,12 @@ export default {
       building: {
         width: 0,
         height: 0,
-        depth: 0
+        depth: 0,
+        floors: []
       }
     };
   },
+ 
   watch: {
     building: {
       handler (newVal) {
@@ -50,6 +27,9 @@ export default {
       },
       deep: true
     }
+  },
+  methods: {
+   
   }
 };
 </script>
