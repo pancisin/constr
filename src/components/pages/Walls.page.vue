@@ -1,12 +1,10 @@
 <template>
-  <div class="container page">
+  <div>
     <h2>Enclosure walls</h2>
     <hr />
 
     <div class="row">
-      <div class="col-md">
-        <building-form v-model="building" class="mb-3" />
-
+      <div class="col-lg">
         <div class="form-group">
           <label>Brick type</label>
           <wall-brick-picker v-model="brick" />
@@ -18,7 +16,7 @@
           </div>
         </div>
       </div>
-      <div class="col-md">
+      <div class="col-lg">
 
       </div>
     </div>
@@ -26,23 +24,22 @@
 </template>
 
 <script>
-import BuildingForm from '../Building.form';
-import BrickCalc from '../../services/calc/brick.calc';
-import { WallBrickPicker } from '../elements';
+import BrickCalc from '../../services/calc/brick.calc'
+import { WallBrickPicker } from '../elements'
+import { mapGetters } from 'vuex'
 
 export default {
   name: 'walls-page',
   data () {
     return {
-      building: {},
       brick: {}
     };
   },
   components: {
-    BuildingForm,
     WallBrickPicker
   },
   computed: {
+    ...mapGetters(['building']),
     bricks () {
       return (
         BrickCalc.enclosure(

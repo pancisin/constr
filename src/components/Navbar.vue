@@ -11,12 +11,12 @@
           </router-link>
         </li>
         <li class="nav-item">
-          <router-link :to="{ name: 'foundation' }" class="nav-link">
+          <router-link :to="{ name: 'building.foundation' }" class="nav-link">
             Foundation
           </router-link>
         </li>
         <li class="nav-item">
-          <router-link :to="{ name: 'walls' }" class="nav-link">
+          <router-link :to="{ name: 'building.walls' }" class="nav-link">
             Walls
           </router-link>
         </li>

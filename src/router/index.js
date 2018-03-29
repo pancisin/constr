@@ -18,6 +18,23 @@ const routes = [
     path: '/foundation',
     name: 'foundation',
     component: () => import('../components/pages/Foundation.page.vue')
+  },
+  {
+    path: '/building',
+    name: 'building',
+    component: () => import('../components/pages/Building.page.vue'),
+    children: [
+      {
+        path: '/building/walls',
+        name: 'building.walls',
+        component: () => import('../components/pages/Walls.page.vue')
+      },
+      {
+        path: '/foundation',
+        name: 'building.foundation',
+        component: () => import('../components/pages/Foundation.page.vue')
+      },
+    ]
   }
 ];
 

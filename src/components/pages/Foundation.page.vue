@@ -1,11 +1,10 @@
 <template>
-  <div class="container page">
+  <div>
     <h3>Foundation calculator</h3>
     <hr />
 
     <div class="row">
       <div class="col-md">
-        <building-form v-model="building" class="mb-3" />
         <div class="form-group">
           <label>Foundation type</label>
           <select class="form-control" v-model="fType">
@@ -38,19 +37,19 @@
 import FoundationCalculator from '../Foundation.calculator';
 import PriceCalculator from '../Price.calculator';
 import BoardingCalculator from '../Boarding.calculator';
-import BuildingForm from '../Building.form';
 import FoundationTypes from '../../services/maps/foundationTypes.map';
+import { mapGetters } from 'vuex';
 
 export default {
   name: 'concrete',
   data () {
     return {
       items: 0,
-      fType: 'typeA',
-      building: {}
+      fType: 'typeA'
     };
   },
   computed: {
+    ...mapGetters(['building']),
     foundationTypes () {
       return FoundationTypes;
     }
@@ -58,8 +57,7 @@ export default {
   components: {
     FoundationCalculator,
     PriceCalculator,
-    BoardingCalculator,
-    BuildingForm
+    BoardingCalculator
   },
   methods: {
     update (volume) {
